@@ -26,8 +26,7 @@ RUN sed -i '/serial_flush ();/a \
 
 RUN sed -i 's/bochs/qemu/' /pintos/*/*/Make.vars
 RUN cd /pintos/src/threads && make
-RUN sed -i 's/\/usr\/class\/cs140\/pintos\/pintos\/src/\/pintos/' /pintos/src/utils/pintos-gdb && \
-    sed -i 's/LDFLAGS/LDLIBS/' /pintos/src/utils/Makefile && \
+RUN sed -i 's/LDFLAGS/LDLIBS/' /pintos/src/utils/Makefile && \
     sed -i 's/\$sim = "bochs"/$sim = "qemu"/' /pintos/src/utils/pintos && \
     sed -i 's/kernel.bin/\/pintos\/threads\/build\/kernel.bin/' /pintos/src/utils/pintos && \
     sed -i "s/my (@cmd) = ('qemu');/my (@cmd) = ('qemu-system-x86_64');/" /pintos/src/utils/pintos && \
